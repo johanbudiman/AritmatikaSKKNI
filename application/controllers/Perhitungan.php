@@ -7,24 +7,24 @@ class Perhitungan extends CI_Controller {
 		parent::__construct();
 	}
 
+	//fungsi awal
 	public function index()
 	{
+		//load view perhitungan
 		$this->load->view('Perhitungan');
 	}
 
-	
+	//fungsi melakukan perhitungan aritmatika
 	public function PerhitunganAritmatika()
 	{
 
+		//pengambilan nilai dan jenis aritmatika
 		$angka_pertama = $this->input->post('angka-pertama');
 		$angka_kedua = $this->input->post('angka-kedua');
 		$jenis_aritmatika = $this->input->post('button-jenis-aritmatika');
 
 
-		/*echo $angka_pertama;
-		echo $angka_kedua;
-		echo $jenis_aritmatika;*/
-
+		//perbandingan dan perhitungan hasil aritmatika
 		if ($jenis_aritmatika=="+") {
 			$hasil = $angka_pertama + $angka_kedua;
 			$aritmatika_text = " tambah ";
@@ -42,9 +42,7 @@ class Perhitungan extends CI_Controller {
 		}
 
 
-/*		$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-echo $f->format(1432);*/
-
+		//menyimpan data yang akan di kirim ke view dalam bentuk array
 		$data = array(
 			'hasil' => $hasil,
 			'angka_pertama' => $angka_pertama,
@@ -55,9 +53,7 @@ echo $f->format(1432);*/
 		);		
 
 
-
-		//print_r($data);
-
+		//load view dan mengirim data ke view
 		$this->load->view('Perhitungan', $data);
 
 
