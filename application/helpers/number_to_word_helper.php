@@ -35,7 +35,7 @@ function number_to_word($num)
         {
             $levels--;
             $hundreds   = ( int ) ( $num_part / 100 );
-            $hundreds   = ( $hundreds ? ' ' . $list1[$hundreds] . ' ratus' . ( $hundreds == 1 ? '' : '' ) . ' ' : '' );
+            $hundreds   = ( $hundreds ? ' ' . $list1[$hundreds] . ' Ratus' . ( $hundreds == 1 ? '' : '' ) . ' ' : '' );
             $tens       = ( int ) ( $num_part % 100 );
             $singles    = '';
            
@@ -74,7 +74,7 @@ function number_to_word($num)
     }
     else if( ! ( ( int ) $num ) )
     {
-        return 'nol';
+        return 'Nol';
     }
     return '';
 }

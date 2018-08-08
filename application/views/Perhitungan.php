@@ -45,19 +45,19 @@
 			<div class="row pt-3" id="tombol-aritmatika">
 				<!-- aritmatika tambah -->
 				<div class="col-3">
-					<button class="btn btn-success btn-block" type="submit" name="button-jenis-aritmatika" value="+">+</button>
+					<button class="btn btn-success btn-block font-weight-bold" type="submit" name="button-jenis-aritmatika" value="+">+</button>
 				</div>
 				<!-- aritmatika kurang -->
 				<div class="col-3">
-					<button class="btn btn-success btn-block" type="submit" name="button-jenis-aritmatika" value="-">-</button>
+					<button class="btn btn-success btn-block font-weight-bold" type="submit" name="button-jenis-aritmatika" value="-">-</button>
 				</div>
 				<!-- artimatika kali -->
 				<div class="col-3">
-					<button class="btn btn-success btn-block" type="submit" name="button-jenis-aritmatika" value="X">X</button>
+					<button class="btn btn-success btn-block font-weight-bold" type="submit" name="button-jenis-aritmatika" value="X">X</button>
 				</div>
 				<!-- aritmatika bagi -->
 				<div class="col-3">
-					<button class="btn btn-success btn-block" type="submit" name="button-jenis-aritmatika" value="/">/</button>
+					<button class="btn btn-success btn-block font-weight-bold" type="submit" name="button-jenis-aritmatika" value="/">/</button>
 				</div>
 			</div>
 
@@ -77,7 +77,7 @@
 				<div class="card">
 					<div class="card-header">
 						<!-- menampilkan hasil dalam bentuk angka -->
-						<h4 class="text-center font-weight-bold">
+						<h4 class="text-center font-weight-bold text-capitalize">
 							<?php echo $angka_pertama." ".$jenis_aritmatika." ".$angka_kedua." = ".$hasil.$test ?>
 						</h4>
 						<!-- menampilkan hasil dalam bentuk terbilang -->

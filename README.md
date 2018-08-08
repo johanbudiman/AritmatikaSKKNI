@@ -1,7 +1,6 @@
 # AritmatikaSKKNI
 
 folders:
-
 AritmatikaSKKNI/
 	application/
 		cache/ <!-- default dari framework ci -->

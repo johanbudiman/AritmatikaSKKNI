@@ -43,14 +43,47 @@ class Perhitungan extends CI_Controller {
 
 
 		//menyimpan data yang akan di kirim ke view dalam bentuk array
-		$data = array(
-			'hasil' => $hasil,
-			'angka_pertama' => $angka_pertama,
-			'angka_kedua' => $angka_kedua,
-			'jenis_aritmatika' => $jenis_aritmatika,
-			'aritmatika_text' => $aritmatika_text,
-			'hasil_word' => ($hasil>=0 ? number_to_word($hasil) : 'Minus '.number_to_word($hasil*-1))
-		);		
+		if (intval(number_to_word($hasil))) {
+			$data = array(
+				'hasil' => $hasil,
+				'angka_pertama' => $angka_pertama,
+				'angka_kedua' => $angka_kedua,
+				'jenis_aritmatika' => $jenis_aritmatika,
+				'aritmatika_text' => $aritmatika_text,
+				'hasil_word' => ($hasil>=0 ? number_to_word($hasil) : 'Minus '.number_to_word($hasil*-1))
+			);
+		} else {
+			if ($hasil>=0) {
+				list(
+					$angka1,
+					$angka2,
+				) = explode(".", $hasil);
+
+				$data = array(
+					'hasil' => $angka1.".".substr($angka2, 0, 2),
+					'angka_pertama' => $angka_pertama,
+					'angka_kedua' => $angka_kedua,
+					'jenis_aritmatika' => $jenis_aritmatika,
+					'aritmatika_text' => $aritmatika_text,
+					'hasil_word' => (number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
+				);
+			} else {
+				list(
+					$angka1,
+					$angka2,
+				) = explode(",", ($hasil*-1));
+
+				$data = array(
+					'hasil' => $angka1.".".substr($angka2, 0, 2),
+					'angka_pertama' => $angka_pertama,
+					'angka_kedua' => $angka_kedua,
+					'jenis_aritmatika' => $jenis_aritmatika,
+					'aritmatika_text' => $aritmatika_text,
+					'hasil_word' => ("Minus ".number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
+				);
+			}
+		}
+				
 
 
 		//load view dan mengirim data ke view
