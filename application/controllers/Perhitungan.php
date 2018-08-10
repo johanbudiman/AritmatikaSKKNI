@@ -54,33 +54,60 @@ class Perhitungan extends CI_Controller {
 			);
 		} else {
 			if ($hasil>=0) {
-				list(
-					$angka1,
-					$angka2,
-				) = explode(".", $hasil);
 
-				$data = array(
-					'hasil' => $angka1.".".substr($angka2, 0, 2),
-					'angka_pertama' => $angka_pertama,
-					'angka_kedua' => $angka_kedua,
-					'jenis_aritmatika' => $jenis_aritmatika,
-					'aritmatika_text' => $aritmatika_text,
-					'hasil_word' => (number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
-				);
+				if (floor($hasil) != $hasil) {
+					list(
+						$angka1,
+						$angka2,
+					) = explode(".", $hasil);
+
+					$data = array(
+						'hasil' => $angka1.".".substr($angka2, 0, 2),
+						'angka_pertama' => $angka_pertama,
+						'angka_kedua' => $angka_kedua,
+						'jenis_aritmatika' => $jenis_aritmatika,
+						'aritmatika_text' => $aritmatika_text,
+						'hasil_word' => (number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
+					);
+				} else {
+					$data = array(
+						'hasil' => $hasil,
+						'angka_pertama' => $angka_pertama,
+						'angka_kedua' => $angka_kedua,
+						'jenis_aritmatika' => $jenis_aritmatika,
+						'aritmatika_text' => $aritmatika_text,
+						'hasil_word' => (number_to_word($hasil))
+					);
+				}
+				
 			} else {
-				list(
-					$angka1,
-					$angka2,
-				) = explode(",", ($hasil*-1));
 
-				$data = array(
-					'hasil' => $angka1.".".substr($angka2, 0, 2),
-					'angka_pertama' => $angka_pertama,
-					'angka_kedua' => $angka_kedua,
-					'jenis_aritmatika' => $jenis_aritmatika,
-					'aritmatika_text' => $aritmatika_text,
-					'hasil_word' => ("Minus ".number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
-				);
+				if (floor($hasil) != $hasil) {
+					list(
+						$angka1,
+						$angka2,
+					) = explode(",", ($hasil*-1));
+
+					$data = array(
+						'hasil' => $angka1.".".substr($angka2, 0, 2),
+						'angka_pertama' => $angka_pertama,
+						'angka_kedua' => $angka_kedua,
+						'jenis_aritmatika' => $jenis_aritmatika,
+						'aritmatika_text' => $aritmatika_text,
+						'hasil_word' => ("Minus ".number_to_word($angka1)." Koma ".number_to_word(substr($angka2, 0, 2)))
+					);
+				} else {
+					$data = array(
+						'hasil' => $hasil,
+						'angka_pertama' => $angka_pertama,
+						'angka_kedua' => $angka_kedua,
+						'jenis_aritmatika' => $jenis_aritmatika,
+						'aritmatika_text' => $aritmatika_text,
+						'hasil_word' => ("Minus ".number_to_word($hasil))
+					);
+				}
+
+				
 			}
 		}
 				
